@@ -43,12 +43,17 @@ impl TodoList {
             self.list[index].completed = ' ';
         }
     }
+
+    fn remove_from_list(&mut self, index: usize) {
+        self.list.remove(index);
+    }
 }
 
 enum Command {
     Get,
     Add(String),
-    Done(usize)
+    Done(usize),
+    Remove(usize)
 }
 
 fn main() {
@@ -59,6 +64,7 @@ fn main() {
         "get" => Command::Get,
         "add" => Command::Add(args[2].clone()),
         "done" => Command::Done(args[2].parse().expect("Error converting to integer")),
+        "remove" => Command::Remove(args[2].parse().expect("Error parsing when removing")),
         _ => panic!("Invalid command: Use get or add.")
     };
 
@@ -75,6 +81,10 @@ fn main() {
         },
         Command::Done(index) => {
             todo_list.mark_done(index);
+            todo_list.print();
+        }
+        Command::Remove(index) => {
+            todo_list.remove_from_list(index);
             todo_list.print();
         }
     } 
