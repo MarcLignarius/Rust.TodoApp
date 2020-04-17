@@ -35,11 +35,16 @@ impl TodoList {
             println!("{} [{}] - {}", index, item.completed, item.name);
         }
     }
+
+    fn mark_done(&mut self, index: usize) {
+        self.list[index].completed = 'x';
+    }
 }
 
 enum Command {
     Get,
-    Add(String)
+    Add(String),
+    Done(usize)
 }
 
 fn main() {
@@ -49,6 +54,7 @@ fn main() {
     let command = match args[1].as_str() {
         "get" => Command::Get,
         "add" => Command::Add(args[2].clone()),
+        "done" => Command::Done(args[2].parse().expect("Error converting to integer")),
         _ => panic!("Invalid command: Use get or add.")
     };
 
@@ -60,6 +66,10 @@ fn main() {
         Command::Get => todo_list.print(),
         Command::Add(item) => {
             todo_list.add_to_list(item);
+            todo_list.print();
+        },
+        Command::Done(index) => {
+            todo_list.mark_done(index);
             todo_list.print();
         }
     } 
