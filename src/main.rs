@@ -69,7 +69,10 @@ fn main() {
     };
 
     todo_list.add_to_list("Do the groceries".to_string());
-    todo_list.add_to_list("Clean the gutters".to_string());
+    todo_list.add_to_list("Pay bills".to_string());
+    todo_list.add_to_list("Code more projects".to_string());
+    todo_list.add_to_list("Take baby to the park".to_string());
+    todo_list.add_to_list("Finish watching the Office".to_string());
     todo_list.mark_done(1);
 
 
