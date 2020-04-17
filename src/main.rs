@@ -31,8 +31,8 @@ impl TodoList {
     }
 
     fn print(&self) {
-        for item in &self.list {
-            println!("[{}] - {}", item.completed, item.name);
+        for (index, item) in self.list.iter().enumerate() {
+            println!("{} [{}] - {}", index, item.completed, item.name);
         }
     }
 }
