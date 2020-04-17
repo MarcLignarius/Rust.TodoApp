@@ -32,7 +32,7 @@ This application allows users to add items to a to do list, mark them as done/un
 * `cd desktop` Navigate to the desktop.
 * `git clone "https://github.com/MarcLignarius/Rust.TodoApp"` Clone this repository to your desktop.
 * `cd Rust.TodoApp` Open up the cloned repository.
-* `cargo run` to compile, build and launch the app.
+* `cargo run` to compile, build and launch the app. (ignore error message)
 
 ## Commands
 
