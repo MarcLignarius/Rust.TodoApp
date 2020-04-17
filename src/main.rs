@@ -37,7 +37,11 @@ impl TodoList {
     }
 
     fn mark_done(&mut self, index: usize) {
-        self.list[index].completed = 'x';
+        if self.list[index].completed == ' ' {
+            self.list[index].completed = 'x';
+        } else {
+            self.list[index].completed = ' ';
+        }
     }
 }
 
@@ -60,6 +64,7 @@ fn main() {
 
     todo_list.add_to_list("Do the groceries".to_string());
     todo_list.add_to_list("Clean the gutters".to_string());
+    todo_list.mark_done(1);
 
 
     match command {
